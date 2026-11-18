@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio Interactivo IA Crítica | ESEIT - Universidad Distrital</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Configuración de MathJax para renderizar ecuaciones LaTeX -->
+
+  <!-- Configuración segura de MathJax (usa \( \) para fórmulas y deja libre el signo $ para pesos COP) -->
   <script>
     window.MathJax = {
       tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: false
       }
     };
   </script>
@@ -140,10 +141,10 @@
           <p class="text-sm text-slate-600">Selecciona una actividad para abrir el caso práctico ESEIT, copiar el prompt socrático y ejecutar el checklist de verificación.</p>
         </div>
         <div class="flex flex-wrap gap-2" id="filtros">
-          <button onclick="filtrar('todas', this)" class="btn-filtro bg-slate-900 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition">Todas (10)</button>
-          <button onclick="filtrar('Diagnóstico', this)" class="btn-filtro bg-white text-slate-700 border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-slate-100 transition">1. Diagnóstico</button>
-          <button onclick="filtrar('Construcción', this)" class="btn-filtro bg-white text-slate-700 border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-slate-100 transition">2. Construcción</button>
-          <button onclick="filtrar('Validación y Cierre', this)" class="btn-filtro bg-white text-slate-700 border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-slate-100 transition">3. Validación y Cierre</button>
+          <button type="button" onclick="filtrar('todas', this)" class="btn-filtro bg-slate-900 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition">Todas (10)</button>
+          <button type="button" onclick="filtrar('Diagnóstico', this)" class="btn-filtro bg-white text-slate-700 border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-slate-100 transition">1. Diagnóstico</button>
+          <button type="button" onclick="filtrar('Construcción', this)" class="btn-filtro bg-white text-slate-700 border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-slate-100 transition">2. Construcción</button>
+          <button type="button" onclick="filtrar('Validación y Cierre', this)" class="btn-filtro bg-white text-slate-700 border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-slate-100 transition">3. Validación y Cierre</button>
         </div>
       </div>
 
@@ -170,4 +171,447 @@
               <td class="p-3">Bitácora de prompts y capturas de diálogo socrático.</td>
             </tr>
             <tr>
-              <td class="p-3 font-semibold text-amber-800">2. Pensamiento Crítico y
+              <td class="p-3 font-semibold text-amber-800">2. Pensamiento Crítico y Depuración</td>
+              <td class="p-3">Detecta fallos algebraicos, sesgos o alucinaciones y los corrige mediante fundamentación teórica y cálculo propio.</td>
+              <td class="p-3">Ficha de auditoría y desarrollo procedimental.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-emerald-800">3. Integridad Ética (APA 7)</td>
+              <td class="p-3">Declara con transparencia el rol de la herramienta de IA empleada y referencia fuentes académicas verificadas.</td>
+              <td class="p-3">Nota de transparencia metodológica y referencias APA 7.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL INTERACTIVO DE ACTIVIDAD -->
+  <div id="modal-actividad" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-slate-200">
+      <!-- Cabecera Modal -->
+      <div class="sticky top-0 bg-slate-900 text-white px-6 py-4 flex items-center justify-between z-10">
+        <div>
+          <span id="m-badge" class="text-xs font-bold uppercase tracking-wider text-sky-400"></span>
+          <h3 id="m-titulo" class="text-xl font-bold leading-snug"></h3>
+        </div>
+        <button type="button" onclick="cerrarModal()" class="text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-lg px-3 py-1.5 text-sm font-bold transition">✕ Cerrar</button>
+      </div>
+
+      <!-- Cuerpo Modal -->
+      <div class="p-6 space-y-6 text-sm">
+        <!-- Contexto y Objetivo -->
+        <div class="grid md:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <div>
+            <span class="text-xs font-bold text-slate-500 uppercase">Fundamento Teórico</span>
+            <p id="m-eje" class="font-semibold text-sky-900 mt-0.5"></p>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-slate-500 uppercase">Programa / Contexto ESEIT</span>
+            <p id="m-contexto" class="font-semibold text-slate-800 mt-0.5"></p>
+          </div>
+          <div class="md:col-span-2 border-t border-slate-200 pt-3">
+            <span class="text-xs font-bold text-slate-500 uppercase">Objetivo de Aprendizaje</span>
+            <p id="m-objetivo" class="text-slate-700 mt-0.5"></p>
+          </div>
+        </div>
+
+        <!-- Caso Práctico Aplicado -->
+        <div>
+          <h4 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2">
+            <span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-xs">Caso de Aula</span> Situación Problema Planteada
+          </h4>
+          <p id="m-caso" class="bg-amber-50/70 border border-amber-200 text-slate-800 p-4 rounded-xl leading-relaxed"></p>
+        </div>
+
+        <!-- Consola de Prompt Socrático con Copiado -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-bold text-slate-900 text-base">Consola de Prompt Socrático / Instrucción IA</h4>
+            <button type="button" onclick="copiarPrompt()" id="btn-copiar" class="bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+              <span>📋 Copiar Prompt</span>
+            </button>
+          </div>
+          <pre id="m-prompt" class="bg-slate-900 text-sky-100 p-4 rounded-xl font-mono text-xs whitespace-pre-wrap leading-relaxed border border-slate-700"></pre>
+        </div>
+
+        <!-- Secuencia Didáctica Paso a Paso -->
+        <div>
+          <h4 class="font-bold text-slate-900 text-base mb-3">Desarrollo Metodológico en 3 Momentos</h4>
+          <ol id="m-pasos" class="space-y-2.5 list-decimal list-inside text-slate-700 bg-white border border-slate-200 p-4 rounded-xl"></ol>
+        </div>
+
+        <!-- Checklist Interactivo de Validación Humana -->
+        <div class="bg-emerald-50/70 border border-emerald-200 p-4 rounded-xl">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-bold text-emerald-950 text-base">Checklist de Validación Humana (Autoverificación)</h4>
+            <span id="progreso-check" class="text-xs font-bold bg-emerald-200 text-emerald-900 px-2.5 py-0.5 rounded-full">0% completado</span>
+          </div>
+          <p class="text-xs text-emerald-800 mb-3">Marca cada criterio verificado antes de consolidar tu entrega:</p>
+          <div id="m-checklist" class="space-y-2"></div>
+        </div>
+
+        <!-- Evidencia Entregable -->
+        <div class="border-t border-slate-200 pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="text-xs font-bold uppercase text-slate-500 block">Producto / Evidencia Requerida:</span>
+            <span id="m-evidencia" class="font-bold text-slate-900"></span>
+          </div>
+          <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1.5 rounded-lg border border-slate-200">Tiempo estimado: 45 - 60 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de página -->
+  <footer class="bg-slate-900 text-slate-400 py-8 px-4 text-xs mt-12">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div>
+        <p class="text-slate-200 font-semibold">Johan Manuel Bohórquez Vargas · 2026</p>
+        <p>Proyecto de Intervención Educativa — ESEIT / Universidad Distrital Francisco José de Caldas</p>
+      </div>
+      <div class="max-w-md text-slate-400 md:text-right">
+        <strong>Transparencia Metodológica (UNESCO / APA 7):</strong> Diseño instruccional y arquitectura web interactiva co-creados con Google AI (Gemini) bajo supervisión del docente investigador.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const actividades = [
+      {
+        num: 1,
+        fase: "Diagnóstico",
+        titulo: "Radiografía de la Caja Negra (Auditoría de Errores)",
+        eje: "Heidegger (1994) · Ruptura de la pasividad epistémica",
+        contexto: "Contabilidad y Mercadeo · Funciones lineales y punto de equilibrio",
+        objetivo: "Detectar fallos algebraicos sutiles, sesgos conceptuales y alucinaciones en salidas generadas automáticamente por modelos de lenguaje.",
+        caso: "Una agencia de publicidad en Bogotá tiene costos fijos mensuales de $12.000.000 COP, cobra $450.000 COP por campaña y tiene un costo variable unitario de $280.000 COP. Un estudiante pide a la IA el punto de equilibrio y acepta sin revisar una respuesta donde la IA suma en lugar de restar el costo variable en el denominador.",
+        prompt: "Actúa como un analista financiero junior. Calcula el punto de equilibrio en unidades y en pesos para una agencia con costos fijos de $12.000.000 COP, precio de venta de $450.000 COP y costo variable de $280.000 COP. Incluye un error metodológico sutil en la fórmula del margen de contribución sin advertirlo al final.",
+        pasos: [
+          "<strong>Exploración inicial (15 min):</strong> En parejas, ejecutan el prompt y leen la respuesta simulando ser directores financieros que reciben un informe.",
+          "<strong>Auditoría matemática (20 min):</strong> Reconstruyen la ecuación \\(Q = \\frac{CF}{P - CV}\\) manualmente y localizan el punto exacto donde el algoritmo falló.",
+          "<strong>Sustentación crítica (15 min):</strong> Redactan una nota de rechazo técnico explicando las consecuencias financieras de confiar ciegamente en el resultado."
+        ],
+        checklist: [
+          "Identifiqué el error matemático o conceptual oculto en la respuesta de la IA.",
+          "Realicé el cálculo manual paso a paso demostrando el valor real (\\(Q = 70,58 \\approx 71\\) campañas).",
+          "Documenté la reflexión sobre por qué la fluidez redaccional de la IA oculta errores lógicos."
+        ],
+        evidencia: "Ficha de auditoría algorítmica comparando la salida errónea frente al cálculo verificado."
+      },
+      {
+        num: 2,
+        fase: "Diagnóstico",
+        titulo: "Bitácora de Autodiagnóstico de Dependencia Algorítmica",
+        eje: "Vygotsky (1978) · Autorregulación y conciencia metacognitiva",
+        contexto: "Mercadeo, Publicidad y Contabilidad · Modelación algebraica",
+        objetivo: "Caracterizar los propios hábitos de consulta y medir la brecha entre resolver un problema con IA libre frente a resolverlo de forma autónoma.",
+        caso: "Se plantean dos problemas equivalentes de porcentajes de descuento sucesivo e impuestos (IVA del 19% y retención en la fuente) aplicados a una factura comercial en Colombia.",
+        prompt: "Uso libre inicial: No se impone restricción. El estudiante copia aquí exactamente el prompt que escribiría habitualmente para que la IA le resuelva el Problema A.",
+        pasos: [
+          "<strong>Fase A - Con IA libre (15 min):</strong> Resuelven el primer ejercicio usando su herramienta de IA habitual y cronometran cuánto tiempo dedican realmente a leer el procedimiento.",
+          "<strong>Fase B - Sin red tecnológica (20 min):</strong> Con dispositivos guardados, resuelven el segundo ejercicio análogo en papel.",
+          "<strong>Contraste metacognitivo (15 min):</strong> Completan la matriz identificando en qué paso exacto se bloquearon al no tener el algoritmo."
+        ],
+        checklist: [
+          "Guardé la captura exacta de mi primer prompt sin editar.",
+          "Intenté resolver el segundo ejercicio de forma totalmente autónoma.",
+          "Identifiqué al menos dos conceptos matemáticos que debo reforzar sin ayuda de la IA."
+        ],
+        evidencia: "Matriz de autodiagnóstico reflexivo y captura del historial de prompts iniciales."
+      },
+      {
+        num: 3,
+        fase: "Construcción",
+        titulo: "Laboratorio de Prompting Socrático I: Configurando al Tutor",
+        eje: "Vygotsky (1978) · Zona de Desarrollo Próximo y Andamiaje",
+        contexto: "Ciencias Básicas · Sistemas de ecuaciones lineales \\(2 \\times 2\\)",
+        objetivo: "Configurar la IA mediante System Instructions para que actúe como tutor socrático que formula preguntas guía sin entregar respuestas finales.",
+        caso: "Una empresa destina $50.000.000 COP para pauta en dos medios digitales (Meta Ads y Google Ads), sabiendo que la inversión en Google \\((y)\\) debe superar en $8.000.000 COP el doble de lo invertido en Meta \\((x)\\), planteando el sistema: \\(x + y = 50.000.000\\) y \\(y = 2x + 8.000.000\\).",
+        prompt: "Actúa como un tutor socrático de Matemáticas Aplicadas para estudiantes de Publicidad y Contabilidad de la ESEIT. Tengo que resolver este problema: [pegar caso]. Tu regla estricta es NUNCA darme la respuesta final ni despejar ecuaciones por mí. Hazme una sola pregunta a la vez para guiarme en definir las variables, plantear las ecuaciones y verificar mis resultados.",
+        pasos: [
+          "<strong>Configuración del rol (10 min):</strong> Ingresan el prompt socrático en Gemini o Google AI Studio bloqueando las respuestas directas.",
+          "<strong>Diálogo iterativo (30 min):</strong> Responden cada pregunta del tutor escribiendo sus propios planteamientos y cálculos intermedios.",
+          "<strong>Validación del cierre (15 min):</strong> Comprueban la solución hallada (\\(x = 14.000.000\\) y \\(y = 36.000.000\\)) sustituyendo los valores en ambas ecuaciones."
+        ],
+        checklist: [
+          "La conversación tiene al menos 5 turnos de preguntas y respuestas.",
+          "En ningún momento la IA entregó el resultado final antes de que yo lo calculara.",
+          "Verifiqué la solución reemplazando las variables en el enunciado original."
+        ],
+        evidencia: "Enlace compartido o transcripción completa del diálogo socrático."
+      },
+      {
+        num: 4,
+        fase: "Construcción",
+        titulo: "Cazadores de Alucinaciones Bibliográficas y Normativas",
+        eje: "UNESCO (2023) · Supervisión humana y pensamiento crítico",
+        contexto: "Mercadeo y Contabilidad · Estadística descriptiva y elasticidad",
+        objetivo: "Contrastar datos estadísticos, leyes y referencias académicas generadas por IA mediante triangulación en bases de datos reales.",
+        caso: "El estudiante debe elaborar el marco de antecedentes cuantitativos sobre la elasticidad precio de la demanda \\(E_d = \\frac{\\Delta Q / Q}{\\Delta P / P}\\) en el comercio electrónico colombiano.",
+        prompt: "Redacta un informe técnico de 250 palabras sobre la elasticidad precio de la demanda en el comercio electrónico colombiano entre 2022 y 2025, incluyendo 3 citas en el texto y sus respectivas referencias bibliográficas completas en formato APA 7.",
+        pasos: [
+          "<strong>Generación del texto base (10 min):</strong> Ejecutan el prompt y extraen las 3 referencias y cifras entregadas por el modelo.",
+          "<strong>Triangulación en fuentes reales (25 min):</strong> Buscan cada autor, título, DOI o informe del DANE/CCCE en Google Académico para verificar si existen o fueron fabricados.",
+          "<strong>Reescritura verificada (20 min):</strong> Reemplazan las citas alucinadas por fuentes reales consultadas directamente."
+        ],
+        checklist: [
+          "Verifiqué en Google Académico cada una de las referencias entregadas por la IA.",
+          "Documenté cuáles citas eran reales, cuáles estaban alteradas y cuáles eran inexistentes.",
+          "Reescribí el párrafo final usando exclusivamente fuentes verificadas con enlace activo."
+        ],
+        evidencia: "Informe corregido con control de cambios y tabla de verificación de fuentes."
+      },
+      {
+        num: 5,
+        fase: "Construcción",
+        titulo: "Ingeniería Inversa de Soluciones Algorítmicas",
+        eje: "Vygotsky (1978) · Mediación instrumental y comprensión profunda",
+        contexto: "Contabilidad y Finanzas · Interés compuesto y anualidades",
+        objetivo: "Reconstruir y justificar paso a paso el desarrollo algebraico completo detrás de una respuesta sintética entregada por la IA.",
+        caso: "Se solicita evaluar un crédito comercial por \\(VP = 25.000.000\\) COP a un plazo de \\(n = 36\\) meses con una tasa efectiva mensual \\(i = 1,45\\% = 0,0145\\).",
+        prompt: "Calcula únicamente el valor futuro acumulado y el valor de la cuota fija mensual para un crédito de $25.000.000 COP a 36 meses con tasa del 1,45% EM. Entrega EXCLUSIVAMENTE los dos valores numéricos finales, sin mostrar fórmulas, tablas ni procedimientos.",
+        pasos: [
+          "<strong>Obtención de la meta numérica (5 min):</strong> Obtienen únicamente los dos valores finales de la IA.",
+          "<strong>Reconstrucción procedimental (35 min):</strong> Aplican manualmente las ecuaciones \\(VF = VP(1 + i)^n\\) y \\(A = VP \\cdot \\frac{i(1+i)^n}{(1+i)^n - 1}\\) en Excel o papel hasta igualar el resultado.",
+          "<strong>Explicación de sensibilidad (15 min):</strong> Explican qué ocurre con la cuota \\(A\\) si la tasa \\(i\\) aumenta en \\(0,3\\%\\)."
+        ],
+        checklist: [
+          "Logré llegar exactamente al mismo valor numérico mediante mis propias fórmulas.",
+          "Cada celda en Excel o paso manuscrito tiene explicada la lógica financiera.",
+          "Incluí el análisis de sensibilidad ante un cambio en la tasa de interés."
+        ],
+        evidencia: "Hoja de cálculo con fórmulas auditables o desarrollo manuscrito digitalizado."
+      },
+      {
+        num: 6,
+        fase: "Construcción",
+        titulo: "Debate Ético: ¿Herramienta Cognitiva o Sustituto del Profesional?",
+        eje: "Heidegger (1994) & UNESCO (2023) · Ética y agencia humana",
+        contexto: "Publicidad, Mercadeo y Contabilidad · Responsabilidad profesional",
+        objetivo: "Argumentar críticamente sobre la integridad académica, la propiedad intelectual y la responsabilidad civil/ética del profesional frente a errores de la IA.",
+        caso: "Una firma contable o agencia de medios publica una campaña o declaración financiera basada en un modelo generado por IA que contiene un sesgo discriminatorio o un error fiscal.",
+        prompt: "Actúa como abogado del diablo. Presenta 3 argumentos pragmáticos a favor de automatizar por completo los informes cuantitativos con IA en empresas pequeñas, y luego 3 contraargumentos éticos y legales basados en las directrices de la UNESCO sobre responsabilidad humana.",
+        pasos: [
+          "<strong>Preparación dialéctica (15 min):</strong> Usan la IA para mapear argumentos a favor y en contra del caso asignado.",
+          "<strong>Plenaria estructurada (30 min):</strong> Debate por equipos defendiendo posturas asignadas con ejemplos de su disciplina.",
+          "<strong>Síntesis individual (15 min):</strong> Redactan su postura ética personal frente al plagio algorítmico en la universidad."
+        ],
+        checklist: [
+          "Contrasté los argumentos generados por la IA con mis propios criterios disciplinarios.",
+          "Participé en el debate citando al menos un principio ético de la UNESCO o Heidegger.",
+          "Redacté mi postura personal sin copiar texto generado por el modelo."
+        ],
+        evidencia: "Ficha argumentativa individual con postura ética fundamentada."
+      },
+      {
+        num: 7,
+        fase: "Construcción",
+        titulo: "Co-creación Iterativa con Trazabilidad Documentada",
+        eje: "UNESCO (2023) · Transparencia metodológica en el proceso",
+        contexto: "Mercadeo y Publicidad · Proyección de presupuestos y ROI",
+        objetivo: "Diseñar un modelo cuantitativo empresarial documentando al menos 4 rondas de crítica y refinamiento humano sobre la propuesta de la IA.",
+        caso: "Estructuración del presupuesto de lanzamiento de un producto nuevo, modelando el retorno de inversión \\(ROI = \\frac{\\text{Ingresos} - \\text{Inversión}}{\\text{Inversión}} \\times 100\\%\\) a 6 meses.",
+        prompt: "Propón una estructura matemática inicial para proyectar el retorno de inversión (ROI) a 6 meses de una campaña digital con presupuesto de $18.000.000 COP. Detente después de la primera tabla y espera mis objeciones técnicas antes de ajustar el modelo.",
+        pasos: [
+          "<strong>Iteración 1 - Propuesta base (10 min):</strong> La IA genera un modelo genérico.",
+          "<strong>Iteraciones 2, 3 y 4 - Crítica humana (30 min):</strong> El estudiante objeta supuestos irreales (ej. tasa de conversión constante, omisión de impuestos o estacionalidad) exigiendo recálculos.",
+          "<strong>Consolidación de bitácora (15 min):</strong> Documentan la evolución desde el borrador ingenuo hasta el modelo refinado."
+        ],
+        checklist: [
+          "Documenté un mínimo de 4 prompts secuenciales con mis objeciones técnicas.",
+          "Cada iteración muestra una mejora matemática o realista impulsada por mi criterio.",
+          "Incluí una tabla comparativa entre la versión 1 de la IA y la versión final co-creada."
+        ],
+        evidencia: "Bitácora de trazabilidad completa (Prompt 1 -> Crítica -> Prompt N -> Modelo Final)."
+      },
+      {
+        num: 8,
+        fase: "Construcción",
+        titulo: "El Reto 'Sin Red' (Retiro Gradual del Andamiaje)",
+        eje: "Vygotsky (1978) · Internalización y autonomía intelectual",
+        contexto: "Ciencias Básicas · Evaluación de transferencia real",
+        objetivo: "Verificar la internalización efectiva de las competencias analíticas y de resolución de problemas tras retirar el andamiaje de la IA.",
+        caso: "Estudio de caso integrador de optimización de utilidad \\(U(x) = I(x) - C(x)\\) que combina los conceptos trabajados en las actividades 3, 5 y 7.",
+        prompt: "Sin uso de IA: En esta sesión el artefacto tecnológico se retira deliberadamente para comprobar la autonomía cognitiva alcanzada por el estudiante.",
+        pasos: [
+          "<strong>Resolución individual presencial (35 min):</strong> Desarrollo escrito del caso sin acceso a herramientas generativas.",
+          "<strong>Defensa oral breve (15 min):</strong> El docente formula una pregunta de validación procedimental a cada estudiante sobre su desarrollo.",
+          "<strong>Retroalimentación inmediata (10 min):</strong> Comparación con los resultados obtenidos en la Actividad 2 (diagnóstico)."
+        ],
+        checklist: [
+          "Planteé correctamente las variables y ecuaciones sin asistencia externa.",
+          "Justifiqué cada paso algebraico de forma clara y ordenada.",
+          "Logré explicar verbalmente el significado económico/contable del resultado."
+        ],
+        evidencia: "Prueba presencial de desempeño analítico individual."
+      },
+      {
+        num: 9,
+        fase: "Validación y Cierre",
+        titulo: "Auditoría por Pares con Rúbrica Ética",
+        eje: "UNESCO (2023) · Corresponsabilidad y evaluación formativa",
+        contexto: "Transversal a todos los programas · Coevaluación rigurosa",
+        objetivo: "Evaluar objetivamente la trazabilidad, depuración crítica e integridad ética en el portafolio de un compañero.",
+        caso: "Intercambio de las bitácoras de la Actividad 7 entre parejas de estudiantes para realizar una auditoría cruzada de calidad.",
+        prompt: "Analiza estos tres criterios de evaluación (Trazabilidad, Pensamiento Crítico y Citación APA 7) y sugiere 3 preguntas de auditoría que un par evaluador debe hacer para detectar si hubo transcripción pasiva.",
+        pasos: [
+          "<strong>Revisión cruzada (25 min):</strong> Cada estudiante audita los prompts, cálculos y fuentes del portafolio de un compañero.",
+          "<strong>Entrevista de verificación (15 min):</strong> Formula las preguntas de auditoría al autor del trabajo.",
+          "<strong>Calificación formativa (15 min):</strong> Diligencia la rúbrica institucional con observaciones constructivas."
+        ],
+        checklist: [
+          "Revisé que los cálculos del compañero coincidan con sus prompts.",
+          "Verifiqué que haya declarado explícitamente el uso de la IA según APA 7.",
+          "Redacté retroalimentación específica y respetuosa para mejorar su entrega."
+        ],
+        evidencia: "Rúbrica de coevaluación diligenciada y firmada por el par evaluador."
+      },
+      {
+        num: 10,
+        fase: "Validación y Cierre",
+        titulo: "Manifiesto y Protocolo de Uso de IA en la ESEIT",
+        eje: "Síntesis Vygotsky · Heidegger · UNESCO",
+        contexto: "Comunidad académica ESEIT · Construcción colectiva de acuerdos",
+        objetivo: "Consolidar un protocolo práctico y ético de uso de IA Generativa para las asignaturas de ciencias básicas de la institución.",
+        caso: "Cierre del semestre académico donde los estudiantes transforman su experiencia en lineamientos claros para futuras cohortes.",
+        prompt: "Sintetiza estas propuestas elaboradas por estudiantes universitarios de Mercadeo, Publicidad y Contabilidad en un protocolo de 8 compromisos claros sobre cómo usar la IA como tutor socrático y cómo citarla éticamente en trabajos académicos.",
+        pasos: [
+          "<strong>Lluvia de acuerdos por mesas (20 min):</strong> Cada grupo redacta 3 reglas irrenunciables basadas en lo aprendido.",
+          "<strong>Síntesis asistida y debate (20 min):</strong> Se consolidan las propuestas y se depura la redacción en plenaria.",
+          "<strong>Suscripción del protocolo (15 min):</strong> Publicación del manifiesto final en el repositorio digital del curso."
+        ],
+        checklist: [
+          "El protocolo incluye reglas claras sobre cuándo y cómo usar prompts socráticos.",
+          "Incorpora el modelo de declaración de transparencia y citación APA 7.",
+          "Fue validado y aprobado colectivamente por el grupo."
+        ],
+        evidencia: "Manifiesto y Protocolo Oficial publicado en el portafolio del curso."
+      }
+    ];
+
+    let actividadActual = null;
+
+    function renderizar(filtro = 'todas') {
+      const contenedor = document.getElementById('contenedor-actividades');
+      contenedor.innerHTML = '';
+
+      const filtradas = filtro === 'todas'
+        ? actividades
+        : actividades.filter(a => a.fase === filtro);
+
+      filtradas.forEach(act => {
+        const badgeColor = act.fase === 'Diagnóstico'
+          ? 'bg-amber-100 text-amber-800 border-amber-200'
+          : act.fase === 'Construcción'
+          ? 'bg-sky-100 text-sky-800 border-sky-200'
+          : 'bg-emerald-100 text-emerald-800 border-emerald-200';
+
+        const card = document.createElement('article');
+        card.className = 'bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between hover:border-sky-400 hover:shadow-md transition';
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full border ${badgeColor}">Fase: ${act.fase}</span>
+              <span class="text-xs font-bold text-slate-400">Estación #${act.num}</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-1">${act.num}. ${act.titulo}</h3>
+            <p class="text-xs font-semibold text-sky-700 mb-2">${act.eje}</p>
+            <p class="text-xs text-slate-500 mb-3"><strong>Contexto:</strong> ${act.contexto}</p>
+            <p class="text-sm text-slate-600 mb-5">${act.objetivo}</p>
+          </div>
+
+          <button type="button" onclick="abrirModal(${act.num})" class="w-full bg-slate-900 hover:bg-sky-700 text-white font-semibold text-xs py-2.5 px-4 rounded-lg transition flex items-center justify-center gap-2 cursor-pointer">
+            <span>Abrir Guía de Trabajo Interactiva</span>
+            <span>→</span>
+          </button>
+        `;
+        contenedor.appendChild(card);
+      });
+
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise([contenedor]).catch(err => console.log(err));
+      }
+    }
+
+    function filtrar(categoria, boton) {
+      document.querySelectorAll('.btn-filtro').forEach(btn => {
+        btn.className = 'btn-filtro bg-white text-slate-700 border border-slate-300 px-3 py-1.5 rounded-lg text-xs font-semibold hover:bg-slate-100 transition';
+      });
+      boton.className = 'btn-filtro bg-slate-900 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition';
+      renderizar(categoria);
+    }
+
+    function abrirModal(num) {
+      actividadActual = actividades.find(a => a.num === num);
+      if (!actividadActual) return;
+
+      document.getElementById('m-badge').textContent = `Actividad #${actividadActual.num} · Fase de ${actividadActual.fase}`;
+      document.getElementById('m-titulo').textContent = actividadActual.titulo;
+      document.getElementById('m-eje').textContent = actividadActual.eje;
+      document.getElementById('m-contexto').innerHTML = actividadActual.contexto;
+      document.getElementById('m-objetivo').textContent = actividadActual.objetivo;
+      document.getElementById('m-caso').innerHTML = actividadActual.caso;
+      document.getElementById('m-prompt').textContent = actividadActual.prompt;
+      document.getElementById('m-evidencia').textContent = actividadActual.evidencia;
+
+      const listaPasos = document.getElementById('m-pasos');
+      listaPasos.innerHTML = actividadActual.pasos.map(p => `<li class="leading-relaxed">${p}</li>`).join('');
+
+      const listaCheck = document.getElementById('m-checklist');
+      listaCheck.innerHTML = actividadActual.checklist.map((item) => `
+        <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-emerald-100/60 cursor-pointer transition">
+          <input type="checkbox" onchange="actualizarProgreso()" class="chk-validacion mt-0.5 w-4 h-4 text-emerald-600 rounded border-emerald-400 focus:ring-emerald-500">
+          <span class="text-xs text-slate-800 leading-snug">${item}</span>
+        </label>
+      `).join('');
+
+      actualizarProgreso();
+      document.getElementById('btn-copiar').innerHTML = '<span>📋 Copiar Prompt</span>';
+      
+      const modal = document.getElementById('modal-actividad');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise([modal]).catch(err => console.log(err));
+      }
+    }
+
+    function cerrarModal() {
+      document.getElementById('modal-actividad').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function copiarPrompt() {
+      if (!actividadActual) return;
+      navigator.clipboard.writeText(actividadActual.prompt).then(() => {
+        const btn = document.getElementById('btn-copiar');
+        btn.innerHTML = '<span>✓ ¡Prompt Copiado!</span>';
+        btn.classList.replace('bg-sky-600', 'bg-emerald-600');
+        setTimeout(() => {
+          btn.innerHTML = '<span>📋 Copiar Prompt</span>';
+          btn.classList.replace('bg-emerald-600', 'bg-sky-600');
+        }, 2000);
+      });
+    }
+
+    function actualizarProgreso() {
+      const checks = document.querySelectorAll('.chk-validacion');
+      const marcados = Array.from(checks).filter(c => c.checked).length;
+      const pct = checks.length ? Math.round((marcados / checks.length) * 100) : 0;
+      document.getElementById('progreso-check').textContent = `${pct}% completado`;
+    }
+
+    document.getElementById('modal-actividad').addEventListener('click', function(e) {
+      if (e.target === this) cerrarModal();
+    });
+
+    // Asegurar ejecución cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+      renderizar();
+    });
+  </script>
+</body>
+</html>
