@@ -1,1 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matriz de Secuenciación Curricular | ESEIT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: false
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
+  <!-- Barra superior de navegación -->
+  <div class="no-print bg-slate-900 text-white px-4 py-3 sticky top-0 z-40 shadow">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <a href="../index.html" class="text-xs font-bold bg-slate-800 hover:bg-slate-700 text-sky-300 px-3 py-2 rounded-lg transition">
+        ← Volver al Portafolio Principal
+      </a>
+      <span class="text-xs text-slate-400 hidden sm:inline">Material de Planeación Curricular · Elaborado con Claude</span>
+      <button onclick="window.print()" class="text-xs font-bold bg-sky-600 hover:bg-sky-500 text-white px-4 py-2 rounded-lg transition cursor-pointer">
+        🖨️ Imprimir / Guardar PDF
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <!-- Encabezado del Documento -->
+    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-8">
+      <span class="inline-block bg-sky-100 text-sky-800 text-xs font-bold px-3 py-1 rounded-full mb-3">
+        Material 1 · Planeación Curricular
+      </span>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3">
+        Matriz de Secuenciación Curricular y Microcurrículo Ajustado
+      </h1>
+      <div class="grid md:grid-cols-2 gap-2 text-xs text-slate-600 border-t border-slate-200 pt-4">
+        <p><strong>Docente Investigador:</strong> Johan Manuel Bohórquez Vargas</p>
+        <p><strong>Institución:</strong> Escuela Superior de Empresa, Ingeniería y Tecnología (ESEIT)</p>
+        <p><strong>Programa de Posgrado:</strong> Maestría en Educación en Tecnología (UDFJC)</p>
+        <p><strong>Población Objetivo:</strong> Mercadeo, Publicidad y Contabilidad (Ciencias Básicas)</p>
+      </div>
+    </div>
+
+    <!-- Propósito -->
+    <div class="bg-sky-950 text-white p-6 rounded-xl mb-8 shadow-sm">
+      <h2 class="text-sm font-bold uppercase tracking-wider text-sky-300 mb-1">Propósito Curricular de la Intervención</h2>
+      <p class="text-sm text-slate-200 leading-relaxed">
+        Transitar de un uso pasivo y sustitutivo de la Inteligencia Artificial Generativa (transcripción algorítmica no reflexiva) hacia prácticas de co-creación crítica, tutoría socrática y auditoría epistémica en la resolución de problemas cuantitativos aplicados al contexto empresarial.
+      </p>
+    </div>
+
+    <!-- Tabla Matriz -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden mb-8">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="bg-slate-900 text-white">
+              <th class="p-3.5 font-bold w-28">Sesión / Fase</th>
+              <th class="p-3.5 font-bold w-44">Unidad Temática</th>
+              <th class="p-3.5 font-bold">Objetivo de Aprendizaje</th>
+              <th class="p-3.5 font-bold">Rol de la IA y Estrategia Didáctica</th>
+              <th class="p-3.5 font-bold w-44">Eje Teórico</th>
+              <th class="p-3.5 font-bold w-48">Producto y Criterio Evaluado</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-700">
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-amber-800 bg-amber-50/40">Sesión 1<br><span class="font-normal text-amber-700">Diagnóstico</span></td>
+              <td class="p-3.5 font-semibold">Funciones lineales y punto de equilibrio</td>
+              <td class="p-3.5">Detectar fallos algebraicos sutiles y sesgos en informes financieros generados automáticamente.</td>
+              <td class="p-3.5"><strong>Generador con fallos + Agente API:</strong> Auditoría de un cálculo de punto de equilibrio con error en el margen de contribución mediante <em>Auditor Crítico ESEIT</em>.</td>
+              <td class="p-3.5"><strong>Heidegger (1994):</strong> Ruptura de la pasividad epistémica ante la técnica.</td>
+              <td class="p-3.5">Ficha de auditoría algorítmica.<br><span class="text-sky-700 font-semibold">(Pensamiento crítico y depuración)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-amber-800 bg-amber-50/40">Sesión 2<br><span class="font-normal text-amber-700">Diagnóstico</span></td>
+              <td class="p-3.5 font-semibold">Modelación algebraica: porcentajes, IVA y Retefuente</td>
+              <td class="p-3.5">Caracterizar hábitos de consulta y medir la brecha entre resolver con IA libre vs. autonomía.</td>
+              <td class="p-3.5"><strong>Consulta libre contrastada:</strong> Resolución paralela de dos facturas comerciales (una con IA libre y otra sin conexión).</td>
+              <td class="p-3.5"><strong>Vygotsky (1978):</strong> Autorregulación y conciencia metacognitiva.</td>
+              <td class="p-3.5">Matriz de autodiagnóstico y captura de prompts.<br><span class="text-sky-700 font-semibold">(Trazabilidad del proceso)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-sky-800 bg-sky-50/40">Sesión 3<br><span class="font-normal text-sky-700">Construcción</span></td>
+              <td class="p-3.5 font-semibold">Sistemas de ecuaciones lineales \(2 \times 2\)</td>
+              <td class="p-3.5">Configurar la IA como tutor socrático que guía mediante preguntas sin entregar respuestas finales.</td>
+              <td class="p-3.5"><strong>Tutor Socrático (Google AI Studio):</strong> Bloqueo de respuestas directas mediante <em>System Instructions</em> para distribuir pauta en Meta y Google Ads.</td>
+              <td class="p-3.5"><strong>Vygotsky (1978):</strong> Zona de Desarrollo Próximo y andamiaje temporal.</td>
+              <td class="p-3.5">Transcripción de diálogo socrático (mín. 5 turnos).<br><span class="text-sky-700 font-semibold">(Trazabilidad del proceso)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-sky-800 bg-sky-50/40">Sesión 4<br><span class="font-normal text-sky-700">Construcción</span></td>
+              <td class="p-3.5 font-semibold">Estadística descriptiva y elasticidad precio</td>
+              <td class="p-3.5">Contrastar cifras, normas y referencias bibliográficas generadas por IA mediante triangulación.</td>
+              <td class="p-3.5"><strong>Redactor auditado + Agente API:</strong> Verificación en Google Académico y DANE de citas entregadas en un informe sobre comercio electrónico.</td>
+              <td class="p-3.5"><strong>UNESCO (2023):</strong> Supervisión humana y detección de alucinaciones.</td>
+              <td class="p-3.5">Informe auditado y tabla de fuentes reales.<br><span class="text-sky-700 font-semibold">(Integridad ética APA 7)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-sky-800 bg-sky-50/40">Sesión 5<br><span class="font-normal text-sky-700">Construcción</span></td>
+              <td class="p-3.5 font-semibold">Interés compuesto y anualidades</td>
+              <td class="p-3.5">Reconstruir manualmente el desarrollo algebraico completo detrás de una respuesta sintética.</td>
+              <td class="p-3.5"><strong>Calculadora de caja negra:</strong> La IA entrega solo los valores finales de un crédito; el estudiante deduce las fórmulas en Excel/papel.</td>
+              <td class="p-3.5"><strong>Vygotsky (1978):</strong> Mediación instrumental para comprensión profunda.</td>
+              <td class="p-3.5">Hoja de cálculo auditable y análisis de sensibilidad.<br><span class="text-sky-700 font-semibold">(Pensamiento crítico)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-sky-800 bg-sky-50/40">Sesión 6<br><span class="font-normal text-sky-700">Construcción</span></td>
+              <td class="p-3.5 font-semibold">Ética de datos y sesgos algorítmicos</td>
+              <td class="p-3.5">Argumentar críticamente sobre integridad académica y responsabilidad profesional ante fallos de IA.</td>
+              <td class="p-3.5"><strong>Abogado del diablo:</strong> Generación de posturas antagónicas sobre automatización contable y publicitaria para debate en plenaria.</td>
+              <td class="p-3.5"><strong>Heidegger & UNESCO:</strong> Agencia humana y responsabilidad ética.</td>
+              <td class="p-3.5">Ficha argumentativa individual fundamentada.<br><span class="text-sky-700 font-semibold">(Integridad ética APA 7)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-sky-800 bg-sky-50/40">Sesión 7<br><span class="font-normal text-sky-700">Construcción</span></td>
+              <td class="p-3.5 font-semibold">Proyección de presupuestos, CAC y ROI</td>
+              <td class="p-3.5">Modelar un caso empresarial documentando al menos 4 iteraciones de crítica y ajuste humano.</td>
+              <td class="p-3.5"><strong>Co-creador iterativo:</strong> El estudiante objeta supuestos irreales (impuestos, estacionalidad) obligando a la IA a recalcular.</td>
+              <td class="p-3.5"><strong>UNESCO (2023):</strong> Transparencia metodológica y control humano.</td>
+              <td class="p-3.5">Bitácora de trazabilidad (Prompt 1 a 4 + modelo final).<br><span class="text-sky-700 font-semibold">(Trazabilidad y depuración)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-sky-800 bg-sky-50/40">Sesión 8<br><span class="font-normal text-sky-700">Construcción</span></td>
+              <td class="p-3.5 font-semibold">Optimización de utilidad \(U(x) = I(x) - C(x)\)</td>
+              <td class="p-3.5">Demostrar transferencia efectiva e internalización analítica sin asistencia tecnológica.</td>
+              <td class="p-3.5"><strong>Retiro del andamiaje (Sin IA):</strong> Resolución individual presencial de caso integrador y sustentación oral breve.</td>
+              <td class="p-3.5"><strong>Vygotsky (1978):</strong> Internalización y retiro gradual de la ayuda.</td>
+              <td class="p-3.5">Prueba presencial de desempeño analítico.<br><span class="text-sky-700 font-semibold">(Pensamiento crítico)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-emerald-800 bg-emerald-50/40">Sesión 9<br><span class="font-normal text-emerald-700">Validación</span></td>
+              <td class="p-3.5 font-semibold">Auditoría transversal de modelos cuantitativos</td>
+              <td class="p-3.5">Evaluar objetivamente la trazabilidad, depuración crítica y citación ética en el portafolio de un par.</td>
+              <td class="p-3.5"><strong>Asistente de preguntas de auditoría:</strong> Generación de preguntas de control para entrevista de coevaluación cruzada.</td>
+              <td class="p-3.5"><strong>UNESCO (2023):</strong> Corresponsabilidad y evaluación formativa.</td>
+              <td class="p-3.5">Rúbrica de coevaluación diligenciada.<br><span class="text-sky-700 font-semibold">(Trazabilidad, depuración y APA 7)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-emerald-800 bg-emerald-50/40">Sesión 10<br><span class="font-normal text-emerald-700">Consolidación</span></td>
+              <td class="p-3.5 font-semibold">Síntesis metodológica y protocolos éticos</td>
+              <td class="p-3.5">Consolidar acuerdos colectivos de buenas prácticas y citación APA 7 en ciencias básicas.</td>
+              <td class="p-3.5"><strong>Sintetizador de acuerdos:</strong> Compilación de propuestas de las mesas en un decálogo institucional para la ESEIT.</td>
+              <td class="p-3.5"><strong>Síntesis Teórica:</strong> Uso crítico, reflexivo y centrado en el humano.</td>
+              <td class="p-3.5">Manifiesto y Protocolo Oficial de Uso de IA.<br><span class="text-sky-700 font-semibold">(Integridad ética APA 7)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Nota APA 7 -->
+    <div class="bg-slate-100 border border-slate-300 p-5 rounded-xl text-xs text-slate-600">
+      <strong>Declaración de Transparencia Metodológica (Norma APA 7):</strong> Este instrumento de planeación curricular fue estructurado y sistematizado con el apoyo del modelo de lenguaje <em>Claude</em> (Anthropic, 2026) a partir de los objetivos, referentes teóricos y fases metodológicas formuladas por el docente investigador Johan Manuel Bohórquez Vargas para la Escuela Superior de Empresa, Ingeniería y Tecnología (ESEIT). Revisado y validado pedagógicamente por el autor.
+    </div>
+  </main>
+</body>
+</html>
