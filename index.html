@@ -27,16 +27,20 @@
 
   <!-- Barra de Navegación -->
   <nav class="bg-slate-900 text-white sticky top-0 z-40 shadow-md">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse"></span>
         <span class="font-bold text-lg tracking-tight text-sky-400">IA Crítica · ESEIT</span>
       </div>
-      <div class="space-x-4 text-sm font-medium">
+      <div class="flex flex-wrap items-center gap-4 text-sm font-medium">
         <a href="#proyecto" class="hover:text-sky-300 transition">El Proyecto</a>
         <a href="#teoria" class="hover:text-sky-300 transition">Marco Teórico</a>
-        <a href="#actividades" class="hover:text-sky-300 transition">10 Actividades Interactivas</a>
+        <a href="#actividades" class="hover:text-sky-300 transition">10 Actividades</a>
         <a href="#rubricas" class="hover:text-sky-300 transition">Rúbricas</a>
+        <a href="https://ai.studio/apps/10a39cd1-4696-45db-87d3-9a1b6bdbae36" target="_blank" rel="noopener noreferrer" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1">
+          <span>🤖 Agente Auditor API</span>
+          <span>↗</span>
+        </a>
       </div>
     </div>
   </nav>
@@ -234,6 +238,15 @@
             </button>
           </div>
           <pre id="m-prompt" class="bg-slate-900 text-sky-100 p-4 rounded-xl font-mono text-xs whitespace-pre-wrap leading-relaxed border border-slate-700"></pre>
+
+          <!-- Botón dinámico para Agente Pedagógico Inteligente / Herramientas Externas -->
+          <div id="m-herramienta-box" class="hidden pt-3">
+            <a id="m-herramienta-link" href="#" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center justify-center w-full sm:w-auto gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-5 py-3 rounded-xl shadow-md transition">
+              <span id="m-herramienta-texto">🤖 Abrir Agente Pedagógico Inteligente (Google AI Studio)</span>
+              <span>↗</span>
+            </a>
+          </div>
         </div>
 
         <!-- Secuencia Didáctica Paso a Paso -->
@@ -272,7 +285,7 @@
         <p>Proyecto de Intervención Educativa — ESEIT / Universidad Distrital Francisco José de Caldas</p>
       </div>
       <div class="max-w-md text-slate-400 md:text-right">
-        <strong>Transparencia Metodológica (UNESCO / APA 7):</strong> Diseño instruccional y arquitectura web interactiva co-creados con Google AI (Gemini) bajo supervisión del docente investigador.
+        <strong>Transparencia Metodológica (UNESCO / APA 7):</strong> Diseño instruccional y arquitectura web interactiva co-creados con Google AI (Gemini) y Google AI Studio bajo supervisión del docente investigador.
       </div>
     </div>
   </footer>
@@ -290,7 +303,7 @@
         prompt: "Actúa como un analista financiero junior. Calcula el punto de equilibrio en unidades y en pesos para una agencia con costos fijos de $12.000.000 COP, precio de venta de $450.000 COP y costo variable de $280.000 COP. Incluye un error metodológico sutil en la fórmula del margen de contribución sin advertirlo al final.",
         pasos: [
           "<strong>Exploración inicial (15 min):</strong> En parejas, ejecutan el prompt y leen la respuesta simulando ser directores financieros que reciben un informe.",
-          "<strong>Auditoría matemática (20 min):</strong> Reconstruyen la ecuación \\(Q = \\frac{CF}{P - CV}\\) manualmente y localizan el punto exacto donde el algoritmo falló.",
+          "<strong>Auditoría matemática (20 min):</strong> Reconstruyen la ecuación \\(Q = \\frac{CF}{P - CV}\\) manualmente y usan el Agente Auditor API para contrastar las pistas de error.",
           "<strong>Sustentación crítica (15 min):</strong> Redactan una nota de rechazo técnico explicando las consecuencias financieras de confiar ciegamente en el resultado."
         ],
         checklist: [
@@ -298,7 +311,9 @@
           "Realicé el cálculo manual paso a paso demostrando el valor real (\\(Q = 70,58 \\approx 71\\) campañas).",
           "Documenté la reflexión sobre por qué la fluidez redaccional de la IA oculta errores lógicos."
         ],
-        evidencia: "Ficha de auditoría algorítmica comparando la salida errónea frente al cálculo verificado."
+        evidencia: "Ficha de auditoría algorítmica comparando la salida errónea frente al cálculo verificado.",
+        enlaceApp: "https://ai.studio/apps/10a39cd1-4696-45db-87d3-9a1b6bdbae36",
+        textoBotonApp: "🤖 Abrir Agente Auditor API (Google AI Studio)"
       },
       {
         num: 2,
@@ -352,7 +367,7 @@
         caso: "El estudiante debe elaborar el marco de antecedentes cuantitativos sobre la elasticidad precio de la demanda \\(E_d = \\frac{\\Delta Q / Q}{\\Delta P / P}\\) en el comercio electrónico colombiano.",
         prompt: "Redacta un informe técnico de 250 palabras sobre la elasticidad precio de la demanda en el comercio electrónico colombiano entre 2022 y 2025, incluyendo 3 citas en el texto y sus respectivas referencias bibliográficas completas en formato APA 7.",
         pasos: [
-          "<strong>Generación del texto base (10 min):</strong> Ejecutan el prompt y extraen las 3 referencias y cifras entregadas por el modelo.",
+          "<strong>Generación del texto base (10 min):</strong> Ejecutan el prompt y pasan el texto resultante por el Agente Auditor API para recibir pistas de verificación.",
           "<strong>Triangulación en fuentes reales (25 min):</strong> Buscan cada autor, título, DOI o informe del DANE/CCCE en Google Académico para verificar si existen o fueron fabricados.",
           "<strong>Reescritura verificada (20 min):</strong> Reemplazan las citas alucinadas por fuentes reales consultadas directamente."
         ],
@@ -361,7 +376,9 @@
           "Documenté cuáles citas eran reales, cuáles estaban alteradas y cuáles eran inexistentes.",
           "Reescribí el párrafo final usando exclusivamente fuentes verificadas con enlace activo."
         ],
-        evidencia: "Informe corregido con control de cambios y tabla de verificación de fuentes."
+        evidencia: "Informe corregido con control de cambios y tabla de verificación de fuentes.",
+        enlaceApp: "https://ai.studio/apps/10a39cd1-4696-45db-87d3-9a1b6bdbae36",
+        textoBotonApp: "🤖 Auditar Informe con el Agente API (Google AI Studio)"
       },
       {
         num: 5,
@@ -508,12 +525,19 @@
           ? 'bg-sky-100 text-sky-800 border-sky-200'
           : 'bg-emerald-100 text-emerald-800 border-emerald-200';
 
+        const badgeApi = act.enlaceApp
+          ? `<span class="text-[11px] font-bold px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 border border-indigo-200">Incluye Agente API</span>`
+          : '';
+
         const card = document.createElement('article');
         card.className = 'bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between hover:border-sky-400 hover:shadow-md transition';
         card.innerHTML = `
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="text-xs font-bold px-2.5 py-1 rounded-full border ${badgeColor}">Fase: ${act.fase}</span>
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-xs font-bold px-2.5 py-1 rounded-full border ${badgeColor}">Fase: ${act.fase}</span>
+                ${badgeApi}
+              </div>
               <span class="text-xs font-bold text-slate-400">Estación #${act.num}</span>
             </div>
             <h3 class="text-lg font-bold text-slate-900 mb-1">${act.num}. ${act.titulo}</h3>
@@ -555,6 +579,17 @@
       document.getElementById('m-caso').innerHTML = actividadActual.caso;
       document.getElementById('m-prompt').textContent = actividadActual.prompt;
       document.getElementById('m-evidencia').textContent = actividadActual.evidencia;
+
+      const boxHerramienta = document.getElementById('m-herramienta-box');
+      const linkHerramienta = document.getElementById('m-herramienta-link');
+      const textoHerramienta = document.getElementById('m-herramienta-texto');
+      if (actividadActual.enlaceApp) {
+        linkHerramienta.href = actividadActual.enlaceApp;
+        textoHerramienta.textContent = actividadActual.textoBotonApp || '🤖 Abrir Agente Pedagógico Inteligente';
+        boxHerramienta.classList.remove('hidden');
+      } else {
+        boxHerramienta.classList.add('hidden');
+      }
 
       const listaPasos = document.getElementById('m-pasos');
       listaPasos.innerHTML = actividadActual.pasos.map(p => `<li class="leading-relaxed">${p}</li>`).join('');
