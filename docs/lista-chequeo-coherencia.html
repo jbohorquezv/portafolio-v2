@@ -1,1 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Chequeo de Coherencia Pedagógica | ESEIT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
+  <!-- Barra superior -->
+  <div class="no-print bg-slate-900 text-white px-4 py-3 sticky top-0 z-40 shadow">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <a href="../index.html" class="text-xs font-bold bg-slate-800 hover:bg-slate-700 text-sky-300 px-3 py-2 rounded-lg transition">
+        ← Volver al Portafolio Principal
+      </a>
+      <span class="text-xs text-slate-400 hidden sm:inline">Material de Validación Docente · Elaborado con Microsoft Copilot</span>
+      <button onclick="window.print()" class="text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg transition cursor-pointer">
+        🖨️ Imprimir / Guardar PDF
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-5xl mx-auto px-4 py-10">
+    <!-- Encabezado -->
+    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-6">
+      <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full mb-3">
+        Material 2 · Planeación y Validación por Pares
+      </span>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
+        Lista de Chequeo de Coherencia Pedagógica
+      </h1>
+      <p class="text-sm text-slate-600 mb-4">
+        Instrumento técnico para verificar la alineación entre la fundamentación teórica, las 10 actividades diseñadas y los criterios de evaluación formativa en la <strong>ESEIT</strong>.
+      </p>
+
+      <!-- Datos del Evaluador (editables en pantalla) -->
+      <div class="grid md:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs">
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Nombre del Par Evaluador:</label>
+          <input type="text" placeholder="Escribe nombre del docente..." class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Programa / Área Académica:</label>
+          <input type="text" placeholder="Ej. Ciencias Básicas / Contabilidad" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Fecha de Revisión:</label>
+          <input type="date" class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla de Verificación -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden mb-6">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="bg-slate-900 text-white">
+              <th class="p-3.5 font-bold w-36">Dimensión</th>
+              <th class="p-3.5 font-bold">Criterio de Verificación Técnica</th>
+              <th class="p-3.5 font-bold text-center w-20">Cumple</th>
+              <th class="p-3.5 font-bold text-center w-24">Parcial</th>
+              <th class="p-3.5 font-bold text-center w-20">No cumple</th>
+              <th class="p-3.5 font-bold w-48">Observaciones</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-700">
+            <tr>
+              <td class="p-3.5 font-bold text-sky-900 bg-sky-50/40">1. Coherencia Curricular</td>
+              <td class="p-3.5"><strong>1.1</strong> Existe correspondencia directa entre las brechas del diagnóstico (atrofia analítica, plagio algorítmico, pasividad epistémica) y los objetivos propuestos.</td>
+              <td class="p-3.5 text-center"><input type="radio" name="c1" class="w-4 h-4 accent-emerald-600"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c1" class="w-4 h-4 accent-amber-500"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c1" class="w-4 h-4 accent-rose-600"></td>
+              <td class="p-3.5"><input type="text" placeholder="Notas..." class="w-full border-b border-slate-300 focus:outline-none py-1"></td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-sky-900 bg-sky-50/40">1. Coherencia Curricular</td>
+              <td class="p-3.5"><strong>1.2</strong> Los ejes teóricos (Vygotsky: andamiaje; Heidegger: crítica a la técnica; UNESCO: ética y supervisión humana) se operacionalizan en las actividades.</td>
+              <td class="p-3.5 text-center"><input type="radio" name="c2" class="w-4 h-4 accent-emerald-600"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c2" class="w-4 h-4 accent-amber-500"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c2" class="w-4 h-4 accent-rose-600"></td>
+              <td class="p-3.5"><input type="text" placeholder="Notas..." class="w-full border-b border-slate-300 focus:outline-none py-1"></td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-sky-900 bg-sky-50/40">1. Coherencia Curricular</td>
+              <td class="p-3.5"><strong>1.3</strong> Los casos matemáticos y financieros responden al perfil profesional de Mercadeo, Publicidad y Contabilidad en la ESEIT.</td>
+              <td class="p-3.5 text-center"><input type="radio" name="c3" class="w-4 h-4 accent-emerald-600"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c3" class="w-4 h-4 accent-amber-500"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c3" class="w-4 h-4 accent-rose-600"></td>
+              <td class="p-3.5"><input type="text" placeholder="Notas..." class="w-full border-b border-slate-300 focus:outline-none py-1"></td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-amber-900 bg-amber-50/40">2. Pertinencia Didáctica</td>
+              <td class="p-3.5"><strong>2.1</strong> Las consignas y <em>prompts</em> socráticos impiden que la IA entregue soluciones directas, exigiendo hipótesis y justificación paso a paso.</td>
+              <td class="p-3.5 text-center"><input type="radio" name="c4" class="w-4 h-4 accent-emerald-600"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c4" class="w-4 h-4 accent-amber-500"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c4" class="w-4 h-4 accent-rose-600"></td>
+              <td class="p-3.5"><input type="text" placeholder="Notas..." class="w-full border-b border-slate-300 focus:outline-none py-1"></td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-amber-900 bg-amber-50/40">2. Pertinencia Didáctica</td>
+              <td class="p-3.5"><strong>2.2</strong> La secuencia incluye el retiro gradual del andamiaje tecnológico (Actividad 8 "Sin Red") para verificar internalización cognitiva.</td>
+              <td class="p-3.5 text-center"><input type="radio" name="c5" class="w-4 h-4 accent-emerald-600"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c5" class="w-4 h-4 accent-amber-500"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c5" class="w-4 h-4 accent-rose-600"></td>
+              <td class="p-3.5"><input type="text" placeholder="Notas..." class="w-full border-b border-slate-300 focus:outline-none py-1"></td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-amber-900 bg-amber-50/40">2. Pertinencia Didáctica</td>
+              <td class="p-3.5"><strong>2.3</strong> Las rúbricas valoran la trazabilidad de iteraciones, la depuración de alucinaciones y la citación ética bajo norma APA 7.</td>
+              <td class="p-3.5 text-center"><input type="radio" name="c6" class="w-4 h-4 accent-emerald-600"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c6" class="w-4 h-4 accent-amber-500"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c6" class="w-4 h-4 accent-rose-600"></td>
+              <td class="p-3.5"><input type="text" placeholder="Notas..." class="w-full border-b border-slate-300 focus:outline-none py-1"></td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-emerald-900 bg-emerald-50/40">3. Viabilidad Técnica</td>
+              <td class="p-3.5"><strong>3.1</strong> Las guías son claras y autocontenidas para ser replicadas por otros docentes de la ESEIT en semestres posteriores.</td>
+              <td class="p-3.5 text-center"><input type="radio" name="c7" class="w-4 h-4 accent-emerald-600"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c7" class="w-4 h-4 accent-amber-500"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c7" class="w-4 h-4 accent-rose-600"></td>
+              <td class="p-3.5"><input type="text" placeholder="Notas..." class="w-full border-b border-slate-300 focus:outline-none py-1"></td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-bold text-emerald-900 bg-emerald-50/40">3. Viabilidad Técnica</td>
+              <td class="p-3.5"><strong>3.2</strong> Los recursos digitales (portafolio web y Agente Pedagógico Inteligente en Google AI Studio) son accesibles sin barreras técnicas.</td>
+              <td class="p-3.5 text-center"><input type="radio" name="c8" class="w-4 h-4 accent-emerald-600"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c8" class="w-4 h-4 accent-amber-500"></td>
+              <td class="p-3.5 text-center"><input type="radio" name="c8" class="w-4 h-4 accent-rose-600"></td>
+              <td class="p-3.5"><input type="text" placeholder="Notas..." class="w-full border-b border-slate-300 focus:outline-none py-1"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Concepto Final -->
+    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-6 text-xs">
+      <h2 class="font-bold text-slate-900 text-sm mb-3">Concepto General de Validación</h2>
+      <div class="space-y-2 text-slate-700">
+        <label class="flex items-center gap-2"><input type="radio" name="dictamen" class="accent-emerald-600"> <span><strong>Aprobado sin modificaciones:</strong> Viable para implementación institucional inmediata.</span></label>
+        <label class="flex items-center gap-2"><input type="radio" name="dictamen" class="accent-amber-500"> <span><strong>Aprobado con ajustes menores:</strong> Incorporar las observaciones consignadas en la matriz.</span></label>
+        <label class="flex items-center gap-2"><input type="radio" name="dictamen" class="accent-rose-600"> <span><strong>Requiere reformulación:</strong> Revisar alineación teórico-metodológica antes de aplicar.</span></label>
+      </div>
+    </div>
+
+    <!-- Nota APA 7 -->
+    <div class="bg-slate-100 border border-slate-300 p-5 rounded-xl text-xs text-slate-600">
+      <strong>Declaración de Transparencia Metodológica (Norma APA 7):</strong> Instrumento técnico estructurado con el apoyo de <em>Microsoft Copilot</em> (2026) a partir de los criterios de evaluación del diseño del proyecto (Coherencia Curricular, Pertinencia Didáctica y Viabilidad Técnica) definidos por Johan Manuel Bohórquez Vargas para la ESEIT. Revisado y adaptado manualmente por el autor.
+    </div>
+  </main>
+</body>
+</html>
