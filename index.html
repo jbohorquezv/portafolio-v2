@@ -551,7 +551,7 @@
           : 'bg-emerald-100 text-emerald-800 border-emerald-200';
 
         const tagAgente = act.enlaceApp
-          ? `<span class="text-[11px] font-bold bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded-md border border-indigo-200">🤖 Incluye Agente API</span>`
+          ? `<span class="text-[11px] font-bold bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded-md border border-indigo-200">${act.enlaceApp.includes('ai.studio') ? '🤖 Agente / Tutor IA' : '📎 Recurso Didáctico IA'}</span>`
           : '';
 
         const card = document.createElement('article');
