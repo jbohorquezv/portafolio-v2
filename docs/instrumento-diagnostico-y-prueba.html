@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instrumento Diagnóstico y Prueba Sin Red | ESEIT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: false
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <!-- Barra superior -->
+  <div class="no-print bg-slate-900 text-white px-4 py-3 sticky top-0 z-40 shadow">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <a href="../index.html" class="text-xs font-bold bg-slate-800 hover:bg-slate-700 text-sky-300 px-3 py-2 rounded-lg transition">
+        ← Volver al Portafolio Principal
+      </a>
+      <span class="text-xs text-slate-400 hidden sm:inline">Material 10 · Evaluación Diagnóstica y de Transferencia (Gemini)</span>
+      <button onclick="window.print()" class="text-xs font-bold bg-sky-600 hover:bg-sky-500 text-white px-4 py-2 rounded-lg transition cursor-pointer">
+        🖨️ Imprimir Evaluación
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-8">
+    <!-- Encabezado -->
+    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+      <span class="inline-block bg-sky-100 text-sky-800 text-xs font-bold px-3 py-1 rounded-full mb-3">
+        Material 10 · Evaluación de Entrada y Retiro del Andamiaje (Vygotsky, 1978)
+      </span>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
+        Instrumento Diagnóstico y Prueba Presencial de Transferencia “Sin Red”
+      </h1>
+      <p class="text-sm text-slate-600">
+        Diseñado para contrastar el nivel inicial de dependencia algorítmica (Fase 1) frente a la autonomía cognitiva alcanzada tras el retiro gradual de la IA (Actividad 8) en estudiantes de <strong>Mercadeo, Publicidad y Contabilidad (ESEIT)</strong>.
+      </p>
+    </div>
+
+    <!-- PARTE A: Cuestionario Diagnóstico -->
+    <section class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-700">Parte A · Aplicación Inicial (Fase Diagnóstica)</span>
+        <h2 class="text-xl font-bold text-slate-900">Cuestionario de Hábitos de Uso de IA y Alfabetización Crítica</h2>
+        <p class="text-xs text-slate-500 mt-1">Escala: 1 = Nunca | 2 = Casi nunca | 3 = A veces | 4 = Casi siempre | 5 = Siempre</p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="bg-slate-100 text-slate-800 border-b border-slate-300">
+              <th class="p-3 font-bold w-10">#</th>
+              <th class="p-3 font-bold">Ítem de Autopercepción y Práctica Académica</th>
+              <th class="p-3 font-bold text-center w-10">1</th>
+              <th class="p-3 font-bold text-center w-10">2</th>
+              <th class="p-3 font-bold text-center w-10">3</th>
+              <th class="p-3 font-bold text-center w-10">4</th>
+              <th class="p-3 font-bold text-center w-10">5</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-700">
+            <tr>
+              <td class="p-3 font-bold">1</td>
+              <td class="p-3">Cuando enfrento un taller de matemáticas o finanzas, copio el enunciado completo en una IA para obtener la solución final de inmediato.</td>
+              <td class="p-3 text-center"><input type="radio" name="d1"></td>
+              <td class="p-3 text-center"><input type="radio" name="d1"></td>
+              <td class="p-3 text-center"><input type="radio" name="d1"></td>
+              <td class="p-3 text-center"><input type="radio" name="d1"></td>
+              <td class="p-3 text-center"><input type="radio" name="d1"></td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">2</td>
+              <td class="p-3">Verifico manualmente paso a paso las ecuaciones, tasas de interés o despejes que me entrega una herramienta de IA antes de entregar mi trabajo.</td>
+              <td class="p-3 text-center"><input type="radio" name="d2"></td>
+              <td class="p-3 text-center"><input type="radio" name="d2"></td>
+              <td class="p-3 text-center"><input type="radio" name="d2"></td>
+              <td class="p-3 text-center"><input type="radio" name="d2"></td>
+              <td class="p-3 text-center"><input type="radio" name="d2"></td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">3</td>
+              <td class="p-3">Contrasto en Google Académico o bases institucionales (DANE, Banrep) las cifras y referencias bibliográficas sugeridas por modelos generativos.</td>
+              <td class="p-3 text-center"><input type="radio" name="d3"></td>
+              <td class="p-3 text-center"><input type="radio" name="d3"></td>
+              <td class="p-3 text-center"><input type="radio" name="d3"></td>
+              <td class="p-3 text-center"><input type="radio" name="d3"></td>
+              <td class="p-3 text-center"><input type="radio" name="d3"></td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">4</td>
+              <td class="p-3">Configuro la IA mediante instrucciones de rol (<em>prompts</em> socráticos) para que me haga preguntas guía en lugar de darme la respuesta.</td>
+              <td class="p-3 text-center"><input type="radio" name="d4"></td>
+              <td class="p-3 text-center"><input type="radio" name="d4"></td>
+              <td class="p-3 text-center"><input type="radio" name="d4"></td>
+              <td class="p-3 text-center"><input type="radio" name="d4"></td>
+              <td class="p-3 text-center"><input type="radio" name="d4"></td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">5</td>
+              <td class="p-3">Declaro explícitamente el uso de herramientas de IA y las cito conforme a la norma APA 7 en mis entregas universitarias.</td>
+              <td class="p-3 text-center"><input type="radio" name="d5"></td>
+              <td class="p-3 text-center"><input type="radio" name="d5"></td>
+              <td class="p-3 text-center"><input type="radio" name="d5"></td>
+              <td class="p-3 text-center"><input type="radio" name="d5"></td>
+              <td class="p-3 text-center"><input type="radio" name="d5"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PARTE B: Prueba Presencial Sin Red -->
+    <section class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-5">
+      <div class="border-b border-slate-200 pb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-rose-700">Parte B · Aplicación Presencial sin Acceso a IA ni Internet (Actividad 8)</span>
+        <h2 class="text-xl font-bold text-slate-900">Prueba de Transferencia Autónoma “Reto Sin Red”</h2>
+        <p class="text-xs text-slate-600 mt-1"><strong>Reglas:</strong> Desarrollo individual en papel con calculadora científica básica. Todo resultado numérico sin procedimiento algebraico y justificación escrita carece de validez.</p>
+      </div>
+
+      <div class="space-y-4 text-sm text-slate-800">
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <h3 class="font-bold text-slate-900 mb-1">Problema 1 · Punto de Equilibrio y Margen de Contribución (35%)</h3>
+          <p class="leading-relaxed">
+            Una agencia de mercadeo digital en Bogotá tiene costos fijos mensuales de \(\$18.000.000\text{ COP}\). Cada paquete de gestión de redes sociales se factura a \(\$1.250.000\text{ COP}\) y genera costos variables directos de pauta y diseño por \(\$800.000\text{ COP}\).
+            <br><strong>a)</strong> Plantea las funciones de ingreso \(I(x)\) y costo total \(C(x)\).
+            <br><strong>b)</strong> Calcula el punto de equilibrio en unidades y en pesos de facturación.
+            <br><strong>c)</strong> <em>Sustentación crítica:</em> ¿Cuántos paquetes debe vender la agencia para obtener una utilidad operativa mensual de \(\$9.000.000\text{ COP}\)?
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <h3 class="font-bold text-slate-900 mb-1">Problema 2 · Sistemas de Ecuaciones Lineales \(2 \times 2\) (35%)</h3>
+          <p class="leading-relaxed">
+            El departamento de publicidad asigna un presupuesto total de \(\$42.000.000\text{ COP}\) entre pauta en video (\(x\)) y pauta en buscadores (\(y\)). Por política comercial, la inversión en buscadores debe exceder en \(\$6.000.000\text{ COP}\) al doble de lo invertido en video.
+            <br><strong>a)</strong> Formula el sistema de ecuaciones lineales que modela la situación.
+            <br><strong>b)</strong> Resuelve el sistema paso a paso por sustitución o eliminación y verifica la solución.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <h3 class="font-bold text-slate-900 mb-1">Problema 3 · Descuentos Comerciales Sucesivos e IVA (30%)</h3>
+          <p class="leading-relaxed">
+            Una empresa comercializadora adquiere insumos por \(\$15.000.000\text{ COP}\) antes de impuestos. El proveedor aplica un descuento comercial del \(12\%\) y posteriormente un descuento del \(5\%\) sobre el saldo neto por pago de contado. Sobre la base resultante se liquida el IVA del \(19\%\). Calcula el valor total de la factura y explica por qué el descuento efectivo total no equivale al \(17\%\).
+          </p>
+        </div>
+      </div>
+
+      <!-- Clave docente desplegable -->
+      <details class="no-print bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-xs">
+        <summary class="font-bold text-emerald-900 cursor-pointer select-none">🔑 Clave de Calificación Docente (Ocultar al imprimir para estudiantes)</summary>
+        <div class="mt-3 pt-3 border-t border-emerald-200 space-y-1.5 text-slate-800">
+          <p><strong>Problema 1:</strong> \(I(x) = 1.250.000x\); \(C(x) = 18.000.000 + 800.000x\). Equilibrio: \(x = 40\text{ paquetes}\) (\(\$50.000.000\text{ COP}\)). Para utilidad de \(\$9.000.000\): \(x = \frac{27.000.000}{450.000} = 60\text{ paquetes}\).</p>
+          <p><strong>Problema 2:</strong> \(x + y = 42.000.000\) y \(y = 2x + 6.000.000 \rightarrow 3x = 36.000.000 \rightarrow x = \$12.000.000\text{ COP}\) (video) y \(y = \$30.000.000\text{ COP}\) (buscadores).</p>
+          <p><strong>Problema 3:</strong> Base neta \(= 15.000.000 \times 0,88 \times 0,95 = \$12.540.000\text{ COP}\) (descuento único equivalente del \(16,4\%\)). Total con IVA \((19\%) = \$14.922.600\text{ COP}\).</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- Nota APA 7 -->
+    <div class="bg-slate-100 border border-slate-300 p-5 rounded-xl text-xs text-slate-600">
+      <strong>Declaración de Transparencia Metodológica (Norma APA 7):</strong> Instrumento diagnóstico y prueba de transferencia elaborados con apoyo de <em>Google AI (Gemini)</em> (2026) a partir de los criterios de evaluación y retiro gradual del andamiaje (Vygotsky, 1978) formulados por Johan Manuel Bohórquez Vargas para la ESEIT. Validado y calibrado por el autor.
+    </div>
+  </main>
+</body>
+</html>
