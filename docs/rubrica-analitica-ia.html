@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rúbrica Analítica de Evaluación IA | ESEIT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: false
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <!-- Barra superior -->
+  <div class="no-print bg-slate-900 text-white px-4 py-3 sticky top-0 z-40 shadow">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <a href="../index.html" class="text-xs font-bold bg-slate-800 hover:bg-slate-700 text-sky-300 px-3 py-2 rounded-lg transition">
+        ← Volver al Portafolio Principal
+      </a>
+      <span class="text-xs text-slate-400 hidden sm:inline">Material 9 · Instrumento de Evaluación Formativa (Co-creado con Perplexity AI)</span>
+      <button onclick="window.print()" class="text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg transition cursor-pointer">
+        🖨️ Imprimir / Guardar Acta PDF
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-4 py-10 space-y-8">
+    <!-- Encabezado y Calculador -->
+    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">
+          Material 9 · Evaluación Formativa, Coevaluación y Heteroevaluación
+        </span>
+        <span class="text-xs font-semibold text-slate-500">Ponderación: 100 pts (Escala 0,0 – 5,0)</span>
+      </div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
+        Rúbrica Analítica de Trazabilidad, Depuración e Integridad Ética
+      </h1>
+      <p class="text-sm text-slate-600 mb-5">
+        Aplicable a talleres cuantitativos y financieros de <strong>Mercadeo, Publicidad y Contabilidad (ESEIT)</strong> con uso declarado y ético de IA generativa. Privilegia la agencia estudiantil, la trazabilidad del razonamiento, la validación humana y la transparencia metodológica (UNESCO, 2023).
+      </p>
+
+      <!-- Datos de identificación y Nota Calculada -->
+      <div class="grid md:grid-cols-4 gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs">
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Estudiante Evaluado:</label>
+          <input type="text" placeholder="Nombre completo..." class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5" />
+        </div>
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Programa Académico:</label>
+          <select class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5">
+            <option>Contabilidad</option>
+            <option>Mercadeo</option>
+            <option>Publicidad</option>
+          </select>
+        </div>
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Modalidad de Evaluación:</label>
+          <select class="w-full bg-white border border-slate-300 rounded px-2.5 py-1.5">
+            <option>Heteroevaluación (Docente)</option>
+            <option>Coevaluación (Par Académico)</option>
+            <option>Autoevaluación</option>
+          </select>
+        </div>
+        <div class="bg-slate-900 text-white rounded-lg p-2.5 flex flex-col justify-center items-center">
+          <span class="text-[11px] uppercase tracking-wider text-sky-300 font-bold">Nota Ponderada</span>
+          <span id="nota-final" class="text-2xl font-extrabold text-white">0.00</span>
+          <span id="nivel-final" class="text-[11px] text-slate-300">Ingresa calificaciones</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla Principal de la Rúbrica (Contenido exacto de Perplexity) -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="bg-slate-900 text-white">
+              <th class="p-3.5 font-bold w-40">Dimensión y Peso</th>
+              <th class="p-3.5 font-bold bg-emerald-950/60">Excelente<br><span class="font-normal text-emerald-300">(4,5 – 5,0)</span></th>
+              <th class="p-3.5 font-bold bg-sky-950/60">Competente<br><span class="font-normal text-sky-300">(3,8 – 4,4)</span></th>
+              <th class="p-3.5 font-bold bg-amber-950/60">Básico<br><span class="font-normal text-amber-300">(3,0 – 3,7)</span></th>
+              <th class="p-3.5 font-bold bg-rose-950/60">Insuficiente<br><span class="font-normal text-rose-300">(0,0 – 2,9)</span></th>
+              <th class="p-3.5 font-bold w-24 text-center">Nota<br><span class="font-normal text-slate-300">(0,0–5,0)</span></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-700">
+            <!-- D1: 35% -->
+            <tr>
+              <td class="p-3.5 font-bold text-sky-900 bg-sky-50/40 align-top">
+                1. Trazabilidad del Proceso e Iteración Socrática
+                <span class="block text-[11px] font-semibold text-sky-700 mt-1">Ponderación: 35% (\(D_1\))</span>
+              </td>
+              <td class="p-3.5 align-top leading-relaxed">
+                Documenta de manera completa y verificable el proceso: consigna original, objetivo del taller, <em>prompt</em> inicial, iteraciones, versiones de la IA, decisiones adoptadas, fuentes consultadas, ajustes de fórmulas, supuestos y resultados finales. Explica cómo cada respuesta de la IA fue cuestionada mediante preguntas socráticas (p. ej., “¿qué supuesto subyace?”, “¿qué datos faltan?”, “¿qué alternativa metodológica aplica?”) y cómo modificó su análisis. Presenta un registro cronológico claro —bitácora, capturas, tabla de prompts-respuestas o anexo— que permite reproducir el ejercicio.
+              </td>
+              <td class="p-3.5 align-top leading-relaxed">
+                Registra la mayoría de las etapas del proceso y presenta varias iteraciones con la IA. Formula algunas preguntas de profundización que evidencian revisión de supuestos, datos o métodos. La trazabilidad es suficiente para entender el recorrido, aunque puede presentar vacíos menores en la justificación de decisiones, la organización del registro o la vinculación entre <em>prompts</em>, fuentes y resultados.
+              </td>
+              <td class="p-3.5 align-top leading-relaxed">
+                Presenta evidencia parcial del uso de IA y de la secuencia de trabajo. Las iteraciones son escasas, genéricas o centradas en solicitar respuestas directas, sin cuestionar supuestos, fuentes, unidades, fórmulas o interpretaciones. La trazabilidad permite reconstruir solo fragmentos del ejercicio.
+              </td>
+              <td class="p-3.5 align-top leading-relaxed">
+                No documenta el proceso, entrega únicamente el resultado final, no declara el uso de IA o presenta un registro incoherente. No hay evidencia de preguntas socráticas, revisión crítica ni iteración responsable.
+              </td>
+              <td class="p-3.5 align-top text-center">
+                <input type="number" min="0" max="5" step="0.1" value="0" oninput="calcularNota()" class="nota-criterio w-16 border border-slate-300 rounded px-2 py-1.5 text-center font-bold text-slate-900" data-peso="0.35">
+              </td>
+            </tr>
+
+            <!-- D2: 35% -->
+            <tr>
+              <td class="p-3.5 font-bold text-amber-900 bg-amber-50/40 align-top">
+                2. Pensamiento Crítico y Depuración Algorítmica
+                <span class="block text-[11px] font-semibold text-amber-700 mt-1">Ponderación: 35% (\(D_2\))</span>
+              </td>
+              <td class="p-3.5 align-top leading-relaxed">
+                Examina críticamente cada aporte de la IA antes de incorporarlo. Verifica datos, fórmulas, unidades, supuestos contables, criterios de segmentación, indicadores financieros o de marketing, y coherencia entre el problema y el método. Detecta y corrige errores, alucinaciones, sesgos, omisiones, cálculos inconsistentes o fuentes no confiables. Contrasta resultados con fuentes primarias o secundarias pertinentes y justifica la decisión metodológica final. Integra la IA como apoyo para pensar, no como sustituto del análisis.
+              </td>
+              <td class="p-3.5 align-top leading-relaxed">
+                Revisa los principales datos, fórmulas y conclusiones generadas o apoyadas por IA. Identifica la mayoría de las inconsistencias relevantes y realiza correcciones razonables. Contrasta algunas afirmaciones con fuentes adecuadas y explica los supuestos utilizados. Puede dejar sin profundizar algún supuesto secundario, una validación de fuente o una sensibilidad del resultado.
+              </td>
+              <td class="p-3.5 align-top leading-relaxed">
+                Utiliza la IA para obtener información, cálculos o redacción, pero realiza una revisión limitada. Acepta parcialmente resultados sin comprobarlos, no valida todas las fuentes o no explica con claridad los supuestos, unidades, fórmulas o limitaciones. Se observan errores corregibles que afectan la precisión del análisis.
+              </td>
+              <td class="p-3.5 align-top leading-relaxed">
+                Incorpora resultados de IA sin verificación, presenta errores graves de cálculo, interpretación, fuentes o metodología. No distingue entre información generada por IA y evidencia verificable, o reproduce afirmaciones falsas, sesgadas o sin sustento.
+              </td>
+              <td class="p-3.5 align-top text-center">
+                <input type="number" min="0" max="5" step="0.1" value="0" oninput="calcularNota()" class="nota-criterio w-16 border border-slate-300 rounded px-2 py-1.5 text-center font-bold text-slate-900" data-peso="0.35">
+              </td>
+            </tr>
+
+            <!-- D3: 30% -->
+            <tr>
+              <td class="p-3.5 font-bold text-emerald-900 bg-emerald-50/40 align-top">
+                3. Integridad Ética y Citación APA 7
+                <span class="block text-[11px] font-semibold text-emerald-700 mt-1">Ponderación: 30% (\(D_3\))</span>
+              </td>
+              <td class="p-3.5 align-top leading-relaxed">
+                Declara de forma explícita y completa el uso de IA: herramienta, versión/modelo, fecha, propósito, alcance y límites. Distingue con claridad qué contenido fue generado, asistido o verificado por la persona estudiante. Cita correctamente en texto y en la lista de referencias toda IA empleada para contenido citado, parafraseado o incorporado, conforme a APA 7. Protege datos personales, confidenciales, financieros o de clientes; respeta derechos de autor y no presenta contenido ajeno o generado como propio. La declaración ética es precisa, contextualizada y coherente con el desarrollo del taller.
+              </td>
+              <td class="p-3.5 align-top leading-relaxed">
+                Declara el uso de IA y cita las herramientas empleadas de manera generalmente correcta. Identifica en términos generales las secciones asistidas por IA y respeta la confidencialidad de los datos. Puede presentar imprecisiones menores en el formato de la cita, la fecha, la versión del modelo, la descripción del aporte de IA o la separación entre aporte humano y aporte algorítmico.
+              </td>
+              <td class="p-3.5 align-top leading-relaxed">
+                Realiza una declaración mínima o incompleta del uso de IA. Las citas son parciales, con errores relevantes de formato, fecha, autor corporativo, URL, versión o correspondencia entre citas en texto y referencias. La distinción entre contenido humano, asistido por IA y generado por IA es poco clara.
+              </td>
+              <td class="p-3.5 align-top leading-relaxed">
+                No declara el uso de IA, lo oculta, presenta contenido generado como propio sin atribución o comete faltas graves de integridad académica. Incluye datos sensibles sin autorización, omite citas requeridas o utiliza referencias inexistentes, incompletas o incompatibles con APA 7.
+              </td>
+              <td class="p-3.5 align-top text-center">
+                <input type="number" min="0" max="5" step="0.1" value="0" oninput="calcularNota()" class="nota-criterio w-16 border border-slate-300 rounded px-2 py-1.5 text-center font-bold text-slate-900" data-peso="0.30">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Criterios específicos por programa ESEIT -->
+    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+      <h2 class="text-base font-bold text-slate-900 mb-3">Criterios Específicos de Validación por Programa (ESEIT)</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="bg-slate-100 text-slate-800 border-b border-slate-300">
+              <th class="p-3 font-bold w-36">Programa</th>
+              <th class="p-3 font-bold">Evidencias cuantitativas o financieras que deben verificarse</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-700">
+            <tr>
+              <td class="p-3 font-bold text-sky-900">Mercadeo</td>
+              <td class="p-3">Definición del problema comercial, segmentación, tamaño de mercado, encuestas, indicadores de desempeño, análisis de precios, proyecciones de demanda, ROI, ROAS, margen de contribución y coherencia entre datos, supuestos y recomendación estratégica.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-amber-900">Publicidad</td>
+              <td class="p-3">Brief creativo, público objetivo, objetivos de campaña, indicadores clave, presupuesto, alcance, frecuencia, costo por impresión, costo por clic, conversión, retorno publicitario y justificación de la estrategia creativa y mediática.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-emerald-900">Contabilidad</td>
+              <td class="p-3">Identificación de transacciones, partida doble, registros, conciliaciones, estados financieros, depreciaciones, provisiones, impuestos, flujos de caja, análisis de ratios y cumplimiento de principios o normas contables aplicables.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Fórmula, Formato de Declaración y Ejemplo APA 7 -->
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-xs space-y-3">
+        <h2 class="text-base font-bold text-slate-900">Formato Obligatorio: “Declaración de uso de IA generativa”</h2>
+        <p class="text-slate-600">Todo taller entregado por los estudiantes debe incluir esta sección con 7 elementos:</p>
+        <ul class="list-disc list-inside space-y-1.5 text-slate-700">
+          <li>Herramienta y versión o modelo utilizado.</li>
+          <li>Fecha de uso.</li>
+          <li>Propósito específico: lluvia de ideas, estructuración, redacción, depuración, explicación de conceptos, simulación o revisión.</li>
+          <li><em>Prompts</em> relevantes y respuestas utilizadas, descartadas o modificadas.</li>
+          <li>Fuentes humanas y documentales empleadas para verificar la información.</li>
+          <li>Aportes propios del estudiante: análisis, decisiones, cálculos, interpretación y conclusiones.</li>
+          <li>Confirmación de que no se ingresaron datos personales, confidenciales, financieros o de clientes en herramientas abiertas de IA.</li>
+        </ul>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-xs space-y-3">
+        <h2 class="text-base font-bold text-slate-900">Aplicación de la Escala y Ejemplo APA 7</h2>
+        <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl">
+          <p class="font-semibold text-slate-800 mb-1">Fórmula de calificación ponderada:</p>
+          <p class="text-slate-900">\[\text{Nota final} = (0{,}35 \times D_1) + (0{,}35 \times D_2) + (0{,}30 \times D_3)\]</p>
+          <p class="text-slate-600 mt-1">Ejemplo: \(D_1 = 4{,}8\), \(D_2 = 4{,}2\) y \(D_3 = 4{,}6 \rightarrow \text{Nota} = 4{,}52\) (Excelente).</p>
+        </div>
+        <div class="bg-sky-50/60 border border-sky-200 p-3 rounded-xl space-y-1.5 text-slate-800">
+          <p class="font-bold text-sky-950">Ejemplo de citación y referencia bajo APA 7:</p>
+          <p><strong>Cita parenclítica:</strong> (OpenAI, 2026) &nbsp;|&nbsp; <strong>Narrativa:</strong> OpenAI (2026) sugirió…</p>
+          <p><strong>Referencia:</strong> OpenAI. (2026). <em>ChatGPT</em> [Modelo de lenguaje extenso]. https://chat.openai.com/</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Observaciones del evaluador -->
+    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-xs">
+      <label class="font-bold text-slate-900 text-sm block mb-2">Observaciones de Retroalimentación Formativa:</label>
+      <textarea rows="3" placeholder="Registra aquí fortalezas identificadas y recomendaciones de mejora..." class="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:border-sky-500"></textarea>
+    </div>
+
+    <!-- Referencias Bibliográficas (Generadas por Perplexity) y Nota APA 7 -->
+    <div class="bg-slate-100 border border-slate-300 p-6 rounded-xl text-xs text-slate-700 space-y-3">
+      <div>
+        <h3 class="font-bold text-slate-900 mb-1.5">Referencias Bibliográficas (APA 7)</h3>
+        <ul class="space-y-1.5 pl-4 -indent-4 text-slate-600">
+          <li>American Psychological Association. (2025, September 9). <em>Citing generative AI in APA Style: Part 1—Reference formats</em>. https://apastyle.apa.org/blog/cite-generative-ai-references</li>
+          <li>American Psychological Association. (2025, September 15). <em>How to cite ChatGPT</em>. https://apastyle.apa.org/blog/how-to-cite-chatgpt</li>
+          <li>American Psychological Association. (s. f.). <em>AI references</em>. APA Style. https://apastyle.apa.org/style-grammar-guidelines/references/examples/ai-references</li>
+          <li>Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura. (2023). <em>Guía para el uso de IA generativa en educación e investigación</em>. UNESCO. https://unesdoc.unesco.org/ark:/48223/pf0000389227</li>
+        </ul>
+      </div>
+      <div class="border-t border-slate-300 pt-3 text-slate-600">
+        <strong>Declaración de Transparencia Metodológica (Norma APA 7):</strong> Esta rúbrica analítica fue generada y fundamentada bibliográficamente con el apoyo de <em>Perplexity AI</em> (2026) a partir de los parámetros curriculares y las 3 dimensiones evaluativas definidas por Johan Manuel Bohórquez Vargas para la ESEIT (Maestría en Educación en Tecnología, UDFJC). Adaptada a formato web interactivo y validada por el autor.
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function calcularNota() {
+      const inputs = document.querySelectorAll('.nota-criterio');
+      let total = 0;
+      inputs.forEach(inp => {
+        let val = parseFloat(inp.value) || 0;
+        if (val > 5) { val = 5; inp.value = 5; }
+        if (val < 0) { val = 0; inp.value = 0; }
+        const peso = parseFloat(inp.dataset.peso);
+        total += val * peso;
+      });
+      document.getElementById('nota-final').textContent = total.toFixed(2);
+      const nivel = document.getElementById('nivel-final');
+      if (total >= 4.5) nivel.textContent = 'Nivel: Excelente';
+      else if (total >= 3.8) nivel.textContent = 'Nivel: Competente';
+      else if (total >= 3.0) nivel.textContent = 'Nivel: Básico';
+      else if (total > 0) nivel.textContent = 'Nivel: Insuficiente';
+      else nivel.textContent = 'Ingresa calificaciones';
+    }
+  </script>
+</body>
+</html>
