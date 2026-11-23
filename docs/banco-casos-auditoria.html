@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banco de Casos con Errores Algorítmicos | ESEIT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: false
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; }
+      details { display: block !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <!-- Barra superior -->
+  <div class="no-print bg-slate-900 text-white px-4 py-3 sticky top-0 z-40 shadow">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <a href="../index.html" class="text-xs font-bold bg-slate-800 hover:bg-slate-700 text-sky-300 px-3 py-2 rounded-lg transition">
+        ← Volver al Portafolio Principal
+      </a>
+      <span class="text-xs text-slate-400 hidden sm:inline">Material de Apoyo al Aprendizaje · Elaborado con ChatGPT</span>
+      <button onclick="window.print()" class="text-xs font-bold bg-sky-600 hover:bg-sky-500 text-white px-4 py-2 rounded-lg transition cursor-pointer">
+        🖨️ Imprimir / Guardar PDF
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-8">
+    <!-- Encabezado -->
+    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+      <span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full mb-3">
+        Material 8 · Apoyo al Aprendizaje Personalizado e Ingeniería Inversa
+      </span>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
+        Banco de Casos Empresariales con Errores Algorítmicos Ocultos
+      </h1>
+      <p class="text-sm text-slate-600">
+        <strong>Instrucción para el estudiante (ESEIT):</strong> Cada estación presenta un problema real de Mercadeo, Publicidad o Contabilidad acompañado de una salida generada por Inteligencia Artificial que aparenta ser correcta, pero oculta un fallo conceptual o algebraico. Reconstruye el procedimiento manualmente antes de desplegar la clave de auditoría.
+      </p>
+    </div>
+
+    <!-- CASO 1 -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-3 py-1 rounded-full border border-sky-200">
+          Caso 1 · Contabilidad y Finanzas (Interés Compuesto)
+        </span>
+        <span class="text-xs text-slate-400 font-semibold">Nivel: Intermedio</span>
+      </div>
+      <h2 class="text-lg font-bold text-slate-900">Conversión de Tasas Efectivas y Valor Futuro de un Crédito</h2>
+      <p class="text-sm text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200">
+        <strong>Enunciado:</strong> Una empresa comercializadora solicita un crédito por \(VP = \$25.000.000\text{ COP}\) a un plazo de \(36\text{ meses}\) con una tasa del \(18\%\text{ Efectivo Anual (EA)}\). Determina la tasa efectiva mensual equivalente y el valor futuro total a pagar al finalizar los 3 años.
+      </p>
+      <div class="bg-rose-50/70 border border-rose-200 p-4 rounded-xl text-sm">
+        <span class="text-xs font-bold uppercase text-rose-800 block mb-1">🤖 Salida Generada por la IA (Contiene un error oculto):</span>
+        <p class="text-slate-800">
+          "Para hallar la tasa mensual equivalente a partir del \(18\%\text{ EA}\), dividimos la tasa anual entre los 12 meses del año: \(i = \frac{0,18}{12} = 0,015\) (\(1,5\%\text{ EM}\)). Aplicando la fórmula de interés compuesto \(VF = VP(1 + i)^n\) para \(n = 36\) periodos, obtenemos: \(VF = 25.000.000(1 + 0,015)^{36} = \$42.728.489\text{ COP}\)."
+        </p>
+      </div>
+      <details class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm">
+        <summary class="font-bold text-emerald-900 cursor-pointer select-none">👁️ Revelar Clave de Auditoría y Procedimiento Correcto</summary>
+        <div class="mt-3 pt-3 border-t border-emerald-200 space-y-2 text-slate-800">
+          <p><strong>Fallo detectado:</strong> La IA trató una tasa <em>Efectiva Anual (EA)</em> como si fuera <em>Nominal Anual Mes Vencido (NAMV)</em> al dividirla linealmente entre 12. En interés compuesto, la equivalencia exige radicación exponencial.</p>
+          <p><strong>Cálculo verificado:</strong></p>
+          <p>1. Tasa efectiva mensual real: \(i_{EM} = (1 + 0,18)^{1/12} - 1 \approx 0,0138884\) (\(1,3888\%\text{ EM}\)).</p>
+          <p>2. Valor futuro real: \(VF = 25.000.000(1 + 0,0138884)^{36} = 25.000.000(1,18)^3 = \$41.075.800\text{ COP}\).</p>
+          <p class="text-xs text-emerald-900 font-semibold">Impacto financiero del error: Sobrestima la deuda en $1.652.689 COP.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- CASO 2 -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-3 py-1 rounded-full border border-sky-200">
+          Caso 2 · Mercadeo Estratégico (Elasticidad Precio)
+        </span>
+        <span class="text-xs text-slate-400 font-semibold">Nivel: Básico - Intermedio</span>
+      </div>
+      <h2 class="text-lg font-bold text-slate-900">Sensibilidad de la Demanda ante Ajuste de Tarifas</h2>
+      <p class="text-sm text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200">
+        <strong>Enunciado:</strong> Una plataforma de software contable en Bogotá aumenta el precio de su suscripción mensual de \(\$80.000\text{ COP}\) a \(\$96.000\text{ COP}\) (\(+20\%\)). Como consecuencia, el número de suscriptores activos pasa de \(500\) a \(425\) clientes (\(-15\%\)). Calcula la elasticidad precio de la demanda y clasifica el bien.
+      </p>
+      <div class="bg-rose-50/70 border border-rose-200 p-4 rounded-xl text-sm">
+        <span class="text-xs font-bold uppercase text-rose-800 block mb-1">🤖 Salida Generada por la IA (Contiene un error oculto):</span>
+        <p class="text-slate-800">
+          "Calculamos el coeficiente de elasticidad precio relacionando la variación porcentual del precio frente a la variación porcentual de la cantidad demandada: \(E_d = \frac{+20\%}{-15\%} = -1,33\). Dado que \(|E_d| = 1,33 > 1\), la demanda es elástica y el incremento de precio reducirá los ingresos totales."
+        </p>
+      </div>
+      <details class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm">
+        <summary class="font-bold text-emerald-900 cursor-pointer select-none">👁️ Revelar Clave de Auditoría y Procedimiento Correcto</summary>
+        <div class="mt-3 pt-3 border-t border-emerald-200 space-y-2 text-slate-800">
+          <p><strong>Fallo detectado:</strong> La IA invirtió el numerador y el denominador de la fórmula de elasticidad (\(\Delta\%P / \Delta\%Q\) en lugar de \(\Delta\%Q / \Delta\%P\)), invirtiendo por completo la decisión comercial.</p>
+          <p><strong>Cálculo verificado:</strong></p>
+          <p>1. Fórmula correcta: \(E_d = \frac{\Delta\%Q}{\Delta\%P} = \frac{-15\%}{+20\%} = -0,75\).</p>
+          <p>2. Interpretación: Como \(|E_d| = 0,75 < 1\), la demanda es <strong>inelástica</strong>. De hecho, los ingresos pasan de \(\$40.000.000\text{ COP}\) (\(500 \times 80.000\)) a \(\$40.800.000\text{ COP}\) (\(425 \times 96.000\)).</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- CASO 3 -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-3 py-1 rounded-full border border-sky-200">
+          Caso 3 · Publicidad y Eventos BTL (Punto de Equilibrio)
+        </span>
+        <span class="text-xs text-slate-400 font-semibold">Nivel: Básico</span>
+      </div>
+      <h2 class="text-lg font-bold text-slate-900">Punto de Equilibrio en Unidades y en Pesos de Facturación</h2>
+      <p class="text-sm text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200">
+        <strong>Enunciado:</strong> Una productora de eventos BTL tiene costos fijos mensuales de \(\$15.000.000\text{ COP}\), factura cada activación de marca en \(\$600.000\text{ COP}\) y asume un costo variable de logística de \(\$350.000\text{ COP}\) por activación. Calcula el punto de equilibrio en número de activaciones y en pesos de ingresos.
+      </p>
+      <div class="bg-rose-50/70 border border-rose-200 p-4 rounded-xl text-sm">
+        <span class="text-xs font-bold uppercase text-rose-800 block mb-1">🤖 Salida Generada por la IA (Contiene un error oculto):</span>
+        <p class="text-slate-800">
+          "El margen de contribución unitario es \(\$600.000 - \$350.000 = \$250.000\text{ COP}\). Dividiendo los costos fijos entre este margen: \(Q = \frac{15.000.000}{250.000} = 60\text{ activaciones}\). Para expresar el equilibrio en pesos, multiplicamos las 60 activaciones por su costo variable unitario: \(60 \times \$350.000 = \$21.000.000\text{ COP}\)."
+        </p>
+      </div>
+      <details class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm">
+        <summary class="font-bold text-emerald-900 cursor-pointer select-none">👁️ Revelar Clave de Auditoría y Procedimiento Correcto</summary>
+        <div class="mt-3 pt-3 border-t border-emerald-200 space-y-2 text-slate-800">
+          <p><strong>Fallo detectado:</strong> Aunque el cálculo de \(Q = 60\) unidades es correcto, el punto de equilibrio en pesos corresponde al <em>nivel de ingresos (ventas)</em>, por lo que debe multiplicarse por el precio de venta, no por el costo variable.</p>
+          <p><strong>Cálculo verificado:</strong></p>
+          <p>1. Ingresos de equilibrio: \(I_{eq} = Q \times P = 60 \times \$600.000 = \$36.000.000\text{ COP}\).</p>
+          <p>2. Comprobación: Ingresos (\(\$36.000.000\)) \(-\) Costos Variables (\(60 \times 350.000 = \$21.000.000\)) \(-\) Costos Fijos (\(\$15.000.000\)) \(= \$0\text{ COP}\).</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- CASO 4 -->
+    <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-3 py-1 rounded-full border border-sky-200">
+          Caso 4 · Contabilidad Comercial (Descuentos e Impuestos)
+        </span>
+        <span class="text-xs text-slate-400 font-semibold">Nivel: Intermedio</span>
+      </div>
+      <h2 class="text-lg font-bold text-slate-900">Liquidación de Factura con Descuentos Sucesivos e IVA (19%)</h2>
+      <p class="text-sm text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200">
+        <strong>Enunciado:</strong> Se compra mercancía gravada por un valor bruto de \(\$10.000.000\text{ COP}\). El proveedor otorga un descuento comercial del \(10\%\) por volumen y un descuento adicional del \(5\%\) por pronto pago sobre el saldo neto. Posteriormente se liquida el IVA del \(19\%\). Calcula el valor total de la factura.
+      </p>
+      <div class="bg-rose-50/70 border border-rose-200 p-4 rounded-xl text-sm">
+        <span class="text-xs font-bold uppercase text-rose-800 block mb-1">🤖 Salida Generada por la IA (Contiene un error oculto):</span>
+        <p class="text-slate-800">
+          "Sumamos los dos descuentos comerciales otorgados: \(10\% + 5\% = 15\%\). Aplicando este \(15\%\) sobre los \(\$10.000.000\text{ COP}\), la base gravable es \(\$8.500.000\text{ COP}\). Al sumar el IVA del \(19\%\) (\(\$1.615.000\)), el valor total a pagar es \(\$10.115.000\text{ COP}\)."
+        </p>
+      </div>
+      <details class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm">
+        <summary class="font-bold text-emerald-900 cursor-pointer select-none">👁️ Revelar Clave de Auditoría y Procedimiento Correcto</summary>
+        <div class="mt-3 pt-3 border-t border-emerald-200 space-y-2 text-slate-800">
+          <p><strong>Fallo detectado:</strong> Los descuentos sucesivos no son aditivos (\(10\% + 5\% \neq 15\%\)); el segundo descuento opera sobre el saldo ya rebajado (descuento único equivalente del \(14,5\%\)).</p>
+          <p><strong>Cálculo verificado:</strong></p>
+          <p>1. Base gravable tras descuentos en cascada: \(\$10.000.000 \times (1 - 0,10) \times (1 - 0,05) = \$8.550.000\text{ COP}\).</p>
+          <p>2. Liquidación con IVA (\(19\%\)): \(\$8.550.000 \times 1,19 = \$10.174.500\text{ COP}\).</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- Nota APA 7 -->
+    <div class="bg-slate-100 border border-slate-300 p-5 rounded-xl text-xs text-slate-600">
+      <strong>Declaración de Transparencia Metodológica (Norma APA 7):</strong> Banco de casos y distractores algorítmicos co-diseñados con el apoyo de <em>ChatGPT</em> (OpenAI, 2026) bajo la dirección pedagógica de Johan Manuel Bohórquez Vargas para la ESEIT. Todos los modelos matemáticos y claves de auditoría fueron verificados manualmente por el autor.
+    </div>
+  </main>
+</body>
+</html>
